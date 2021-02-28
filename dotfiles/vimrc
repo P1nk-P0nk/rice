@@ -6,6 +6,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdtree'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'chiel92/vim-autoformat'
 
 call plug#end()
 
@@ -68,10 +77,32 @@ set incsearch		" Incremental search
 set mouse=a		" Enable mouse usage (all modes)
 set number
 
-colorscheme monokai
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+colorscheme monokai_pro
 
 let g:vim_markdown_frontmatter=1
 let g:table_mode_corner='|'
+
+" µcomplete
+set completeopt+=menuone
+set completeopt+=noselect
+let g:mucomplete#enable_auto_at_startup = 1
+
+" Python indentation & formatting
+au BufNewFile,BufRead *.py set tabstop=4
+au BufNewFile,BufRead *.py set softtabstop=4
+au BufNewFile,BufRead *.py set shiftwidth=4
+au BufNewFile,BufRead *.py set textwidth=79
+au BufNewFile,BufRead *.py set expandtab
+au BufNewFile,BufRead *.py set autoindent
+au BufNewFile,BufRead *.py set fileformat=unix
+au BufWrite *.py :Autoformat
+
+"NERDTree
+nnoremap <C-g> :NERDTreeToggle<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")

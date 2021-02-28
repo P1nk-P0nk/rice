@@ -22,7 +22,7 @@ font pango:monospace 8
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-set $Locker i3lock -k --timecolor=deadbeef --datecolor=deadbeef -i Images/cameron-venti.png
+set $Locker i3lock -k --timecolor=deadbeef --datecolor=deadbeef --pass-volume-keys -i Images/cameron-venti.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -42,8 +42,9 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom -b
 
 # maim is an improved scrot
-bindsym Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-bindsym Print exec --no-startup-id maim ~/Images/$(date +%s).png
+bindsym Shift+Print exec --no-startup-id maim -su | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id maim -u ~/Images/$(date +%s).png
+bindsym Ctrl+Print exec --no-startup-id maim -su ~/Images/$(date +%s)_w.png
 
 # i3lock to lock the screen
 bindsym $mod+l exec --no-startup-id $Locker
