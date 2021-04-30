@@ -1,4 +1,4 @@
-# i3 config
+# ArchLinux Rice
 
 This config has been made for an installation of arch
 > If you need help installing arch with LVM over LUKS here are some links :
@@ -6,11 +6,12 @@ This config has been made for an installation of arch
 > [A second one](https://gist.github.com/mjnaderi/28264ce68f87f52f2cabb823a503e673)
 
 ## WM
-i3-gaps
+i3-gaps or LeftWM
 
 ## Packages
 ### Desktop environment
 - i3-gaps
+- leftWM
 - i3lock-color
 - sddm
 - nitrogen
