@@ -36,7 +36,7 @@ exec --no-startup-id gnome-keyring-daemon -d
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-set $Locker swaylock -f --clock -i "background_path"
+set $Locker swaylock -f -i "background_path"
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -90,13 +90,18 @@ bindsym --locked XF86MonBrightnessDown exec xbacklight -dec 5
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec wofi --show run
+
+set $menu tofi-run | xargs swaymsg exec --
+bindsym $mod+d exec $menu
+
+set $drun tofi-drun --drun-launch=true
+bindsym $mod+Shift+d exec $drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -186,9 +191,9 @@ workspace_auto_back_and_forth yes
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart sway inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+# exit sway (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)

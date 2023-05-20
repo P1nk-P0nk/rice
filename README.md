@@ -6,21 +6,22 @@ This config has been made for an installation of arch
 > [A second one](https://gist.github.com/mjnaderi/28264ce68f87f52f2cabb823a503e673)
 
 ## WM
-i3-gaps or LeftWM
+~~i3-gaps or LeftWM~~
+I switched to Sway (Wayland, wlroots)
 
 ## Packages
 ### Desktop environment
-- i3-gaps
-- leftWM
-- i3lock-color
-- sddm
-- nitrogen
-- rofi
-- xclip
-- picom
-- redshift
-- polybar
-- maim
+- sway
+- ly¹
+- grim
+- slurp
+- wl-copy
+- wlsunset
+- waybar
+- pipewire
+- tofi
+- kanshi : auto screen layout switching, for when I'm connected to a dock
+- wdisplays : wayland cousin of arandr
 
 ### Applets
 - nm-applet
@@ -29,13 +30,13 @@ i3-gaps or LeftWM
 ### Apps
 - vs-codium
 - firefox
-- cmus
+- ~~cmus~~ mpd & ncmpcpp (or Spotify sometimes)
 - gpodder
 - thunar
 - engrampa
-- typora
+- kakoune
 - discord
-- termite
+- alacritty
 
 ### Services
 - NetworkManager
@@ -51,4 +52,6 @@ i3-gaps or LeftWM
 
 ## Shell
 - zsh
-	- oh-my-zsh
+  - oh-my-zsh
+
+¹ : available through AUR, use an AUR helper
